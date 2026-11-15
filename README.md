@@ -1,6 +1,16 @@
 # hackathon-post-training-agent
 
-Valkyrie agent for the post-training track. It solves one competitive programming problem with a Tinker checkpoint, compiling and testing C++20 inside its own sandbox. The harness is baked into the Daytona snapshot `hackathon-post-training-agent-v3.2`, so a run needs no Vals platform access; graded by the hackathon benchmark service.
+This is the agent that runs your post-training checkpoint during grading. Every scored task starts this agent with your Tinker checkpoint as the model. The agent gives your model one competitive programming problem and two tools. Your model then has up to 100 turns to write and test a C++20 solution.
+
+This repo contains the system prompt, the tool formats and the run limits that grading uses. Use it to train your model on the same formats, or to run your checkpoint locally the way grading does.
+
+This repo does not contain:
+
+- The scoring problems or their hidden tests. The hackathon benchmark service holds those and grades the saved solution after the run.
+- Training code. You train your checkpoint yourself with Tinker.
+- The agents for the other tracks. The Claude Code, Codex and mini-SWE-agent harnesses on the portal are a different thing.
+
+The scoring copy of this agent is baked into the Daytona snapshot `hackathon-post-training-agent-v3.2`, so a run needs no Vals platform access.
 
 ## Tools
 
